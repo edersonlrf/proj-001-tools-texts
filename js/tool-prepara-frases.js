@@ -3,6 +3,9 @@ var $preparaFrases = $("#preparaFrases");
 $preparaFrases.on("click", preparaFrases);
 
 function preparaFrases() {
+    var $frases = $("#frases");
+    $frases.val("");
+
     var $campoIngles = $("#campoIngles");
     var $campoPortugues = $("#campoPortugues");
 
@@ -12,8 +15,8 @@ function preparaFrases() {
     var $frasesPreparadas = $("#frasesPreparadas");
     $frasesPreparadas.html("");
 
-    arrFrasesIngles = separaFrases(textoIngles);
-    arrFrasesPortugues = separaFrases(textoPortugues);
+    var arrFrasesIngles = separaFrases(textoIngles);
+    var arrFrasesPortugues = separaFrases(textoPortugues);
 
     for (var i = 0; i < arrFrasesIngles.length || i < arrFrasesPortugues.length; i++) {
         $frasesPreparadas.append(montaRow(arrFrasesIngles[i], arrFrasesPortugues[i]));
@@ -22,44 +25,25 @@ function preparaFrases() {
 
 function separaFrases(texto) {
     var arrTexto = []
-    arrTextoSemQuebraLinha = separaFrasesPorQuebraLinha(texto);
+    var arrTextoSemQuebraLinha = separaFrasesPor("\n", texto);
     arrTextoSemQuebraLinha.forEach(function(textoSemQuebraLinha){
-        arrTextoSemPonto = separaFrasesPorPonto(textoSemQuebraLinha);
+        var arrTextoSemPonto = separaFrasesPor(".", textoSemQuebraLinha);
         arrTextoSemPonto.forEach(function(textoSemPonto){
-            arrTextoSemVirgula = separaFrasesPorVirgula(textoSemPonto);
+            var arrTextoSemVirgula = separaFrasesPor(",", textoSemPonto);
             arrTexto = arrTexto.concat(arrTextoSemVirgula);
         });
     });
     return arrTexto;
 }
 
-function separaFrasesPorQuebraLinha(texto) {
-    arrTexto = texto.split("\n");
-    for (var i = 0; i < arrTexto.length; i++) {
-        arrTexto[i] = arrTexto[i].trim().toLowerCase();
-        if (arrTexto[i].length == 0)
-            arrTexto.splice(i);
+function separaFrasesPor(split, texto) {
+    var arrTexto = [];
+    var spTexto = texto.split(split);
+    for (var i = 0; i < spTexto.length; i++) {
+        spTexto[i] = spTexto[i].trim().toLowerCase();
+        if (spTexto[i].length > 0)
+            arrTexto.push(spTexto[i]);
     }
-    return arrTexto;
-}
-
-function separaFrasesPorPonto(texto) {
-    arrTexto = texto.split(".");
-    for(var i = 0; i < arrTexto.length; i++) {
-        arrTexto[i] = arrTexto[i].trim().toLowerCase();
-        if (arrTexto[i].length == 0)
-            arrTexto.splice(i);
-    };
-    return arrTexto;
-}
-
-function separaFrasesPorVirgula(texto) {
-    arrTexto = texto.split(",");
-    for(var i = 0; i < arrTexto.length; i++) {
-        arrTexto[i] = arrTexto[i].trim().toLowerCase();
-        if (arrTexto[i].length == 0)
-            arrTexto.splice(i);
-    };
     return arrTexto;
 }
 
