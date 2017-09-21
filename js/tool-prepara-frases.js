@@ -9,14 +9,14 @@ function preparaFrases() {
     var textoIngles = $campoIngles.val();
     var textoPortugues = $campoPortugues.val();
 
-    var $frases = $("#frases");
-    $frases.html("");
+    var $frasesPreparadas = $("#frasesPreparadas");
+    $frasesPreparadas.html("");
 
     arrFrasesIngles = separaFrases(textoIngles);
     arrFrasesPortugues = separaFrases(textoPortugues);
 
     for (var i = 0; i < arrFrasesIngles.length || i < arrFrasesPortugues.length; i++) {
-        $frases.append(montaRow(arrFrasesIngles[i], arrFrasesPortugues[i]));
+        $frasesPreparadas.append(montaRow(arrFrasesIngles[i], arrFrasesPortugues[i]));
     }
 }
 
