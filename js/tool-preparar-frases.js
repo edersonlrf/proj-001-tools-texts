@@ -18,9 +18,10 @@ function preparaFrases() {
     var arrFrasesIngles = separaFrases(textoIngles);
     var arrFrasesPortugues = separaFrases(textoPortugues);
 
-    for (var i = 0; i < arrFrasesIngles.length || i < arrFrasesPortugues.length; i++) {
-        $frasesPreparadas.append(montaRow(arrFrasesIngles[i], arrFrasesPortugues[i]));
-    }
+    if(arrFrasesIngles.length > 0 && arrFrasesPortugues.length > 0)
+        for (var i = 0; i < arrFrasesIngles.length || i < arrFrasesPortugues.length; i++) {
+            $frasesPreparadas.append(montaRow(arrFrasesIngles[i], arrFrasesPortugues[i]));
+        }
 }
 
 function separaFrases(texto) {
