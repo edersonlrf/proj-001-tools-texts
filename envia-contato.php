@@ -6,7 +6,10 @@ $nome = $_POST["nome"];
 $email = $_POST["email"];
 $mensagem = $_POST["mensagem"];
 
-require_once("vendors/PHPMailer/PHPMailerAutoload.php");
+// require_once("vendors/PHPMailer/PHPMailerAutoload.php");
+require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
 
 $mail = new PHPMailer();
 
