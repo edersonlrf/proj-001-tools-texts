@@ -7,6 +7,7 @@ $email = $_POST["email"];
 $mensagem = $_POST["mensagem"];
 
 // require_once("vendors/PHPMailer/PHPMailerAutoload.php");
+// Composer.
 require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
