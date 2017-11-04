@@ -30,21 +30,29 @@ class Texto
      * @var mixed
      */
     private $portugues;
+    /**
+     * @var mixed
+     */
+    private $status;
 
     /**
      * @param $numero
      * @param $titulo
+     * @param $link
+     * @param $youtube
      * @param $ingles
      * @param $portugues
+     * @param $status
      */
-    public function __construct($numero, $titulo, $link, $youtube, $ingles, $portugues)
+    public function __construct($numero, $titulo, $link, $youtube, $ingles, $portugues, $status)
     {
         $this->numero    = $numero;
         $this->titulo    = $titulo;
-        $this->link    = $link;
-        $this->youtube    = $youtube;
+        $this->link      = $link;
+        $this->youtube   = $youtube;
         $this->ingles    = $ingles;
         $this->portugues = $portugues;
+        $this->status    = $status;
     }
 
     /**
@@ -135,8 +143,22 @@ class Texto
     //     $this->portugues = $portugues;
     // }
 
-    // Todas as classe filhas precisam implementar este metodo.
-    // abstract function atualizaBaseadoEm($params);
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    // public function setStatus($status) {
+    //     $this->status = $status;
+    // }
+
+    /**
+     * Todas as classe filhas precisam implementar este metodo.
+     * @param $params
+     */
     public function atualizaBaseadoEm($params)
     {
         // ...
