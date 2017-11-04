@@ -27,9 +27,8 @@ require_once "conecta.php";
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="texto-formulario.php">Adiciona Texto</a></li>
                     <li><a href="texto-lista.php">Lista Texto</a></li>
-                    <li><a href="contato.php">Contato</a></li>
+                    <li><a href="texto-formulario.php">Adiciona Texto</a></li>
                     <li><a href="http://www.mairovergara.com/category/aprendendo-ingles-com-videos/" target="_blank">MairoVergara</a></li>
                     <li><a href="http://www.clipconverter.cc/pt/" target="_blank">ClipConverter</a></li>
                 </ul>

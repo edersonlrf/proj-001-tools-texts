@@ -50,14 +50,15 @@ class textoDAO
     {
         // Interpolar string e variavel usando o { }.
         $query = "
-        INSERT INTO textos (numero, titulo, link, youtube, ingles, portugues)
+        INSERT INTO textos (numero, titulo, link, youtube, ingles, portugues, status)
         VALUES (
             '{$texto->getNumero()}',
             '{$texto->getTitulo()}',
             '{$texto->getLink()}',
             '{$texto->getYoutube()}',
             '{$texto->getIngles()}',
-            '{$texto->getPortugues()}'
+            '{$texto->getPortugues()}',
+            '{$texto->getStatus()}'
         )";
 
         $resultadoDaInsercao = mysqli_query($this->conexao, $query);
@@ -77,8 +78,10 @@ class textoDAO
             link = '{$texto->getLink()}',
             youtube = '{$texto->getYoutube()}',
             ingles = '{$texto->getIngles()}',
-            portugues = '{$texto->getPortugues()}'
-            WHERE id = '{$texto->getId()}'";
+            portugues = '{$texto->getPortugues()}',
+            status = '{$texto->getStatus()}'
+            WHERE id = '{$texto->getId()}'
+        ";
 
         return mysqli_query($this->conexao, $query);
     }

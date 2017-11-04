@@ -10,3 +10,8 @@
     <td>Inglês: <textarea name="ingles" class="form-control" rows="20"><?php echo $texto->getIngles();?></textarea></td>
     <td>Português: <textarea name="portugues" class="form-control" rows="20"><?php echo $texto->getPortugues();?></textarea></td>
 </tr>
+<tr>
+    <td colspan="2">
+        Status: <input type="text" name="status" value="<?php echo $texto->getStatus();?>" class="form-control" required="required"/>
+    </td>
+</tr>

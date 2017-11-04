@@ -17,9 +17,9 @@ $textos = $textoDAO->listaTextos();
             <th>Titulo</th>
             <th>Inglês</th>
             <th>Português</th>
-            <th>Ação 1</th>
-            <th>Ação 2</th>
-            <th width="7%">Ação 3</th>
+            <th>Links</th>
+            <th>Ações</th>
+            <th>Word</th>
         </tr>
     </thead>
     <tbody>
@@ -31,17 +31,21 @@ foreach ($textos as $texto):
             <td><?php echo $texto->getTitulo(); ?></td>
             <td><?php echo substr($texto->getIngles(), 0, 150) . '...'; ?></td>
             <td><?php echo substr($texto->getPortugues(), 0, 150) . '...'; ?></td>
-            <td><a class="btn btn-primary" href="texto-altera-formulario.php?id=<?php echo $texto->getId(); ?>">Alterar</a></td>
             <td>
-                <!-- Não remover com link, pois o GET server somente para pegar dados, e tmb pq se o robo do Google acessar esta pagina, ele vai apagar tudo. -->
-                <!-- <a href="remove-texto.php?id=< ?= $texto['id'] ? >" class="text-danger">remover</a> -->
+                <a class="link" href="<?php echo ($texto->getLink()) ? $texto->getLink() : '#'; ?>" target="_blank">Link</a>
+                <br><br>
+                <a class="link" href="<?php echo ($texto->getYoutube()) ? $texto->getYoutube() : '#'; ?>" target="_blank">Youtube</a>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="texto-altera-formulario.php?id=<?php echo $texto->getId(); ?>">Alterar</a>
+                <br><br>
                 <form action="remove-texto.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $texto->getId(); ?>" />
                     <button class="btn btn-danger">Remover</button>
                 </form>
             </td>
             <td>
-                <a class="btn btn-success" href="texto-word-a.php?id=<?php echo $texto->getId(); ?>" target="_blank">A</a>
+                <a class="btn btn-success" href="texto-word-a.php?id=<?php echo $texto->getId(); ?>" target="_blank">A&nbsp;&nbsp;</a>
                 <a class="btn btn-success" href="texto-word-b1.php?id=<?php echo $texto->getId(); ?>" target="_blank">B1</a>
                 <a class="btn btn-success" href="texto-word-b2.php?id=<?php echo $texto->getId(); ?>" target="_blank">B2</a>
                 <a class="btn btn-success" href="texto-word-c1.php?id=<?php echo $texto->getId(); ?>" target="_blank">C1</a>

@@ -13,8 +13,9 @@ class TextoFactory
         $youtube   = $params['youtube'];
         $ingles    = $params['ingles'];
         $portugues = $params['portugues'];
+        $status    = $params['status'];
 
-        return new Texto($numero, $titulo, $link, $youtube, $ingles, $portugues);
+        return new Texto($numero, $titulo, $link, $youtube, $ingles, $portugues, $status);
     }
 }
 
