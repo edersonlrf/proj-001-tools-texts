@@ -6,20 +6,9 @@ require_once "logica-usuario.php";
 
 verificaUsuario();
 
-// $tipoProduto = $_POST['tipoProduto'];
-// $categoria_id = $_POST['categoria_id'];
-
 $factory = new TextoFactory();
 $texto   = $factory->criaPor($_POST);
 $texto->atualizaBaseadoEm($_POST);
-
-// $texto->getCategoria()->setId($categoria_id);
-
-// if(array_key_exists("usado", $_POST)) {
-//     $texto->setUsado("1");
-// } else {
-//     $texto->setUsado("0");
-// }
 
 $textoDAO = new TextoDAO($conexao);
 

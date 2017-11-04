@@ -3,12 +3,14 @@
 // Cria ou usa uma sessao.
 session_start();
 
-function usuarioEstaLogado() {
+function usuarioEstaLogado()
+{
     // return isset($_COOKIE["usuario_logado"]);
     return isset($_SESSION["usuario_logado"]);
 }
 
-function verificaUsuario() {
+function verificaUsuario()
+{
     // Redireciona se nao estiver logado.
     if (!usuarioEstaLogado()) {
         $_SESSION["danger"] = "Você não tem acesso a esta funcionalidade.";
@@ -17,18 +19,27 @@ function verificaUsuario() {
     }
 }
 
-function usuarioLogado() {
+/**
+ * @return mixed
+ */
+function usuarioLogado()
+{
     // return $_COOKIE["usuario_logado"];
     return $_SESSION["usuario_logado"];
 }
 
-function logaUsuario($email) {
+/**
+ * @param $email
+ */
+function logaUsuario($email)
+{
     // setcookie("usuario_logado", $email);
     // setcookie("usuario_logado", $email, time()+60);
     $_SESSION["usuario_logado"] = $email;
 }
 
-function logout() {
+function logout()
+{
     session_destroy();
     session_start();
 }

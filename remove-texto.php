@@ -1,11 +1,11 @@
 <?php
 
-require_once("logica-usuario.php");
+require_once "logica-usuario.php";
 
 verificaUsuario();
 
-require_once("conecta.php");
-require_once("class/TextoDAO.php");
+require_once "conecta.php";
+require_once "class/TextoDAO.php";
 
 $id = $_POST['id'];
 

@@ -1,7 +1,7 @@
 <?php
 
-require_once("cabecalho.php");
-require_once("logica-usuario.php");
+require_once "cabecalho.php";
+require_once "logica-usuario.php";
 
 ?>
 
@@ -9,14 +9,14 @@ require_once("logica-usuario.php");
 
 <?php
 if (usuarioEstaLogado()) {
-?>
+    ?>
     <p class="text-success">
         Você está logado como <?php echo usuarioLogado(); ?>
     </p>
     <a href="logout.php">Deslogar</a></p>
 <?php
 } else {
-?>
+    ?>
 
 <h2>Login</h2>
 
@@ -40,4 +40,4 @@ if (usuarioEstaLogado()) {
 }
 ?>
 
-<?php require_once("rodape.php"); ?>
+<?php require_once "rodape.php";?>

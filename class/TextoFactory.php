@@ -2,29 +2,20 @@
 
 class TextoFactory
 {
-
-    // private $classes = array("Ebook", "LivroFisico");
-
-    // public function criaPor($tipoProduto, $params) {
     /**
      * @param $params
      */
     public function criaPor($params)
     {
-
-        $numero = $params['numero'];
-        $titulo = $params['titulo'];
-        $ingles = $params['ingles'];
-        // $categoria = new Categoria();
+        $numero    = $params['numero'];
+        $titulo    = $params['titulo'];
+        $link      = $params['link'];
+        $youtube   = $params['youtube'];
+        $ingles    = $params['ingles'];
         $portugues = $params['portugues'];
 
-        // if (in_array($tipoProduto, $this->classes)) {
-        //     return new $tipoProduto($numero, $titulo, $ingles, $categoria, $portugues);
-        // }
-
-        return new Texto($numero, $titulo, $ingles, $portugues);
+        return new Texto($numero, $titulo, $link, $youtube, $ingles, $portugues);
     }
-
 }
 
 // class/TextoFactory.php
