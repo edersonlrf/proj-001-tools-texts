@@ -12,7 +12,7 @@ $textoDAO = new TextoDAO($conexao);
 
 $texto = $textoDAO->buscaTexto($id);
 
-$nomeArquivo = str_pad($texto->getNumero(), 3, '0', STR_PAD_LEFT) . '-A';
+$nomeArquivo = str_pad($texto->getNumero(), 3, '0', STR_PAD_LEFT) . '-B1';
 
 if (file_exists('docs/' . $nomeArquivo . '.docx')) {
     unlink('docs/' . $nomeArquivo . '.docx');
@@ -31,29 +31,52 @@ $section = $phpWord->addSection(
         'marginRight'  => 566,
         'marginTop'    => 566,
         'marginBottom' => 566,
+        'colsNum'      => 2,
+        'colsSpace'    => 283,
     )
 );
 
-$arrTextoIngles = explode("\n", trim($texto->getIngles()));
-
 $fonte = array(
-    'name'    => 'Verdana',
-    'size'    => 10,
-    'bgColor' => 'CCCCCC',
+    'name' => 'Verdana',
+    'size' => 10,
 );
 
 $paragrafo = array(
     'space' => array(
         'before' => 0,
         'after'  => 0,
-        'line'   => 480,
+        'line'   => 259,
     ),
 );
+
+$arrTextoIngles = explode("\n", trim($texto->getIngles()));
 
 foreach ($arrTextoIngles as $key => $value) {
     if ($key == 0) {
         $fonte['bold']          = true;
-        $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::CENTER;
+        $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::LEFT;
+        $numero                 = str_pad($texto->getNumero(), 3, '0', STR_PAD_LEFT) . ' ';
+    } else {
+        $fonte['bold']          = false;
+        $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::BOTH;
+        $numero                 = '';
+    }
+
+    if (strlen(trim($value)) > 0) {
+        $section->addText(
+            $numero . trim($value),
+            $fonte,
+            $paragrafo
+        );
+    }
+}
+
+$arrTextoPortugues = explode("\n", trim($texto->getPortugues()));
+
+foreach ($arrTextoPortugues as $key => $value) {
+    if ($key == 0) {
+        $fonte['bold']          = true;
+        $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::LEFT;
         $numero                 = str_pad($texto->getNumero(), 3, '0', STR_PAD_LEFT) . ' ';
     } else {
         $fonte['bold']          = false;

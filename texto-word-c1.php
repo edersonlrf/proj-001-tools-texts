@@ -12,23 +12,14 @@ $textoDAO = new TextoDAO($conexao);
 
 $texto = $textoDAO->buscaTexto($id);
 
-echo "<pre>";
-// print_r($texto->getIngles());
-echo "</pre>";
-
 $nomeArquivo = str_pad($texto->getNumero(), 3, '0', STR_PAD_LEFT) . '-C1';
 
-?>
-
-
-
-<?php
+if (file_exists('docs/' . $nomeArquivo . '.docx')) {
+    unlink('docs/' . $nomeArquivo . '.docx');
+}
 
 // Composer.
 require 'vendor/autoload.php';
-
-use PhpOffice\PhpWord\Style\Paragraph;
-use PhpOffice\PhpWord\Style\Font;
 
 // Cria um novo documento.
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -36,40 +27,42 @@ $phpWord = new \PhpOffice\PhpWord\PhpWord();
 // Adiciona uma pagina.
 $section = $phpWord->addSection(
     array(
-        'marginLeft'   => 725, // 200 - 0,35
-        'marginRight'  => 725, // x - 1,27
-        'marginTop'    => 725,
-        'marginBottom' => 725,
+        'marginLeft'   => 566,
+        'marginRight'  => 566,
+        'marginTop'    => 566,
+        'marginBottom' => 566,
     )
 );
 
 $arrTextoIngles = explode("\n", trim($texto->getIngles()));
 
 $fonte = array(
-    'font' => 'Calibri',
+    'name' => 'Verdana',
     'size' => 10,
 );
 
 $paragrafo = array(
     'space' => array(
-        'before' => 0,//120
-        'after' => 0,//120
-        'line' => 259,// 276 -> 1,15 = 1,08
+        'before' => 0,
+        'after'  => 0,
+        'line'   => 259,
     ),
 );
 
 foreach ($arrTextoIngles as $key => $value) {
     if ($key == 0) {
-        $fonte['bold'] = true;
+        $fonte['bold']          = true;
         $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::CENTER;
+        $numero                 = str_pad($texto->getNumero(), 3, '0', STR_PAD_LEFT) . ' ';
     } else {
-        $fonte['bold'] = false;
+        $fonte['bold']          = false;
         $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::BOTH;
+        $numero                 = '';
     }
 
     if (strlen(trim($value)) > 0) {
         $section->addText(
-            trim($value),
+            $numero . trim($value),
             $fonte,
             $paragrafo
         );
@@ -80,19 +73,17 @@ foreach ($arrTextoIngles as $key => $value) {
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $objWriter->save('docs/' . $nomeArquivo . '.docx');
 
-?>
-
-
-
-<?php
 if (file_exists('docs/' . $nomeArquivo . '.docx')) {
-    ?>
+?>
     <p class="text-success">
         Arquivo gerado com sucesso!
     </p>
+    <script type="text/javascript">
+        window.close();
+    </script>
 <?php
 } else {
-    ?>
+?>
     <p class="text-error">
         Erro ao gerar arquivo!
     </p>
