@@ -2,8 +2,8 @@
 
 session_start();
 
-$nome = $_POST["nome"];
-$email = $_POST["email"];
+$nome     = $_POST["nome"];
+$email    = $_POST["email"];
 $mensagem = $_POST["mensagem"];
 
 // require_once("vendors/PHPMailer/PHPMailerAutoload.php");

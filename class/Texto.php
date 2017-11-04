@@ -2,7 +2,6 @@
 
 class Texto
 {
-
     /**
      * @var mixed
      */
@@ -18,6 +17,14 @@ class Texto
     /**
      * @var mixed
      */
+    private $link;
+    /**
+     * @var mixed
+     */
+    private $youtube;
+    /**
+     * @var mixed
+     */
     private $ingles;
     /**
      * @var mixed
@@ -30,10 +37,12 @@ class Texto
      * @param $ingles
      * @param $portugues
      */
-    public function __construct($numero, $titulo, $ingles, $portugues)
+    public function __construct($numero, $titulo, $link, $youtube, $ingles, $portugues)
     {
         $this->numero    = $numero;
         $this->titulo    = $titulo;
+        $this->link    = $link;
+        $this->youtube    = $youtube;
         $this->ingles    = $ingles;
         $this->portugues = $portugues;
     }
@@ -81,6 +90,30 @@ class Texto
     /**
      * @return mixed
      */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    // public function setLink($link) {
+    //     $this->link = $link;
+    // }
+
+    /**
+     * @return mixed
+     */
+    public function getYoutube()
+    {
+        return $this->youtube;
+    }
+
+    // public function setYoutube($youtube) {
+    //     $this->youtube = $youtube;
+    // }
+
+    /**
+     * @return mixed
+     */
     public function getIngles()
     {
         return $this->ingles;
@@ -102,44 +135,16 @@ class Texto
     //     $this->portugues = $portugues;
     // }
 
-    // public function isUsado() {
-    //     return $this->usado;
-    // }
-
-    // public function setUsado($usado) {
-    //     $this->usado = $usado;
-    // }
-
-    // public function temIsbn() {
-    //     return $this instanceof Livro;
-    // }
-
-    // public function calculaImposto() {
-    //     return $this->titulo * 0.195;
-    // }
-
-    /**
-     * @param float $valor 0.1 é o percentual padrão.
-     */
-    // public function precoComDesconto($valor = 0.1) {
-    //     if ($valor > 0 && $valor <= 0.5)
-    //         return $this->titulo - ($this->titulo * $valor);
-    //     else
-    //         return $this->titulo;
-    // }
-
-    // public function temTaxaImpressao() {
-    //     return $this instanceof LivroFisico;
-    // }
-
-    // public function temWaterMark() {
-    //     return $this instanceof Ebook;
-    // }
-
     // Todas as classe filhas precisam implementar este metodo.
     // abstract function atualizaBaseadoEm($params);
-    public function atualizaBaseadoEm($params){}
+    public function atualizaBaseadoEm($params)
+    {
+        // ...
+    }
 
+    /**
+     * @return mixed
+     */
     public function __toString()
     {
         return $this->numero . " - " . $this->titulo;

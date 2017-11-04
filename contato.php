@@ -1,4 +1,4 @@
-<?php require_once("cabecalho.php"); ?>
+<?php require_once "cabecalho.php";?>
 
 <form action="envia-contato.php" method="post">
     <table class="table">
@@ -22,4 +22,4 @@
     </table>
 </form>
 
-<?php require_once("rodape.php"); ?>
+<?php require_once "rodape.php";?>
