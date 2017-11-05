@@ -33,12 +33,30 @@ $texto = $textoDAO->buscaTexto($id);
             </td>
         </tr>
         <tr>
-            <td width="50%">Inglês: <textarea name="ingles" class="form-control" rows="20"><?php echo $texto->getIngles();?></textarea></td>
-            <td width="50%">Português: <textarea name="portugues" class="form-control" rows="20"><?php echo $texto->getPortugues();?></textarea></td>
+            <td width="50%">Inglês: <textarea id="campoIngles" name='ingles' class="form-control" rows="20"><?php echo $texto->getIngles();?></textarea></td>
+            <td width="50%">Português: <textarea id="campoPortugues" name='portugues' class="form-control" rows="20"><?php echo $texto->getPortugues();?></textarea></td>
         </tr>
     </table>
 </form>
 
-<a class="btn btn-success" id="btnGerarFrases">Gerar Frases</a>
+<hr>
 
-<?php require_once "rodape.php";?>
+<a class="btn btn-success" id="prepararFrases">Preparar Frases</a>
+
+<hr>
+
+<form action="gera-arquivo-texto.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $texto->getId();?>" />
+    <table id="frasesPreparadas" class="table">
+        <tr>
+            <td width="50%">Inglês: <textarea id="frasesIngles" name="frasesIngles" class="form-control" rows="20"></textarea></td>
+            <td width="50%">Português: <textarea id="frasesPortugues" name="frasesPortugues" class="form-control" rows="20"></textarea></td>
+        </tr>
+    </table>
+    <hr>
+    <button class="btn btn-primary">Gerar Arquivo</button>
+</form>
+
+<hr>
+
+<?php require_once "rodape.php"; ?>

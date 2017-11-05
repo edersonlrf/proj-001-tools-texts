@@ -1,0 +1,26 @@
+{
+  "name": "proj-001-tools-texts",
+  "version": "1.0.0",
+  "description": "Aplicação com ferramentas para trabalhar texts.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edersonlrf/proj-001-tools-texts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edersonlrf/proj-001-tools-texts/issues"
+  },
+  "homepage": "https://github.com/edersonlrf/proj-001-tools-texts#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
+}
