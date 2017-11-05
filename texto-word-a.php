@@ -39,14 +39,14 @@ $arrTextoIngles = explode("\n", trim($texto->getIngles()));
 $fonte = array(
     'name'    => 'Verdana',
     'size'    => 10,
-    'bgColor' => 'CCCCCC',
+    // 'bgColor' => 'CCCCCC',
 );
 
 $paragrafo = array(
     'space' => array(
         'before' => 0,
         'after'  => 0,
-        'line'   => 480,
+        'line'   => 259, // 480,
     ),
 );
 
@@ -64,6 +64,21 @@ foreach ($arrTextoIngles as $key => $value) {
     if (strlen(trim($value)) > 0) {
         $section->addText(
             $numero . trim($value),
+            $fonte,
+            $paragrafo
+        );
+
+        $cont = strlen(trim($value));
+
+        $text = '';
+
+        while ($cont > 0) {
+            $text .= '_';
+            $cont--;
+        }
+
+        $section->addText(
+            $text,
             $fonte,
             $paragrafo
         );
