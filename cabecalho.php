@@ -15,7 +15,8 @@ require_once "conecta.php";
 <head>
     <meta charset="utf-8">
     <title>Tools Texts</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
     <link href="css/style.css" rel="stylesheet">
 </head>
 
