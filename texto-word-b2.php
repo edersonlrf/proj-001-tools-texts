@@ -44,7 +44,7 @@ for ($i=1; $i <= 25; $i++) {
         'space' => array(
             'before' => 0,
             'after'  => 0,
-            'line'   => 259,
+            'line'   => 275,
         ),
     );
 
@@ -55,7 +55,7 @@ for ($i=1; $i <= 25; $i++) {
             $fonte['bold']          = true;
             $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::CENTER;
             $numero                 = str_pad($texto->getNumero(), 3, '0', STR_PAD_LEFT) . ' ';
-            $cont                   = ' [' . $i . '/25]';
+            $cont                   = " [" . $i . "/25]";
         } else {
             $fonte['bold']          = false;
             $paragrafo['alignment'] = \PhpOffice\PhpWord\SimpleType\Jc::BOTH;

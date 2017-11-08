@@ -12,6 +12,6 @@
 </tr>
 <tr>
     <td colspan="2">
-        Status: <input type="text" name="status" value="<?php echo $texto->getStatus();?>" class="form-control" required="required"/>
+        Status: <input type="text" name="status" value="<?php echo $texto->getStatus();?>" class="form-control"/>
     </td>
 </tr>

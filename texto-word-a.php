@@ -46,7 +46,7 @@ $paragrafo = array(
     'space' => array(
         'before' => 0,
         'after'  => 0,
-        'line'   => 259, // 480,
+        'line'   => 275, // 480,
     ),
 );
 
