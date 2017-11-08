@@ -35,17 +35,55 @@ function prepararFrases() {
 
 function separaFrases(texto) {
     var arrTexto = [];
+
     var arrTextoSemQuebraLinha = separaFrasesPor("\n", texto);
+
     arrTextoSemQuebraLinha.forEach(function(textoSemQuebraLinha){
+
+        textoSemQuebraLinha = textoSemQuebraLinha.replace('.', '[ponto].');
+
         var arrTextoSemPonto = separaFrasesPor(".", textoSemQuebraLinha);
+
+            arrTextoSemPonto.forEach(function(textoSemPonto, i){
+                arrTextoSemPonto[i] = textoSemPonto.replace('[ponto]', '.');
+            });
+
         arrTextoSemPonto.forEach(function(textoSemPonto){
+
+            textoSemPonto = textoSemPonto.replace(',', '[virgula],');
+
             var arrTextoSemVirgula = separaFrasesPor(",", textoSemPonto);
+
+                arrTextoSemVirgula.forEach(function(textoSemVirgula, i){
+                    arrTextoSemVirgula[i] = textoSemVirgula.replace('[virgula]', ',');
+                });
+
             arrTextoSemVirgula.forEach(function(textoSemVirgula){
+
+                textoSemVirgula = textoSemVirgula.replace(';', '[pontovirgula];');
+
                 var arrTextoSemPontoVirgula = separaFrasesPor(";", textoSemVirgula);
-                arrTexto = arrTexto.concat(arrTextoSemPontoVirgula);
+
+                    arrTextoSemPontoVirgula.forEach(function(textoSemPontoVirgula, i){
+                        arrTextoSemPontoVirgula[i] = textoSemPontoVirgula.replace('[pontovirgula]', ';');
+                    });
+
+                arrTextoSemPontoVirgula.forEach(function(textoSemPontoVirgula){
+
+                    textoSemPontoVirgula = textoSemPontoVirgula.replace('?', '[interrogacao]?');
+
+                    var arrTextoSemInterrogacao = separaFrasesPor("?", textoSemPontoVirgula);
+
+                        arrTextoSemInterrogacao.forEach(function(textoSemInterrogacao, i){
+                            arrTextoSemInterrogacao[i] = textoSemInterrogacao.replace('[interrogacao]', '?');
+                        });
+
+                    arrTexto = arrTexto.concat(arrTextoSemInterrogacao);
+                });
             });
         });
     });
+
     return arrTexto;
 }
 
