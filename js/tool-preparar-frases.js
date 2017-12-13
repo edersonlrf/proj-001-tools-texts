@@ -99,17 +99,17 @@ function separaFrasesPor(split, texto) {
 }
 
 $("#campoIngles").on('wheel', function(event) {
-    $("#campoPortugues").scrollTop($("#campoIngles").scrollTop() + 100);
+    setTimeout(function(){$("#campoPortugues").scrollTop((parseInt($("#campoIngles").scrollTop())));},500);
 });
 
 $("#campoPortugues").on('wheel', function(event) {
-    $("#campoIngles").scrollTop($("#campoPortugues").scrollTop() + 100);
+    setTimeout(function(){$("#campoIngles").scrollTop((parseInt($("#campoPortugues").scrollTop())));},500);
 });
 
 $("#frasesIngles").on('wheel', function(event) {
-    $("#frasesPortugues").scrollTop($("#frasesIngles").scrollTop() + 100);
+    setTimeout(function(){$("#frasesPortugues").scrollTop((parseInt($("#frasesIngles").scrollTop())));},500);
 });
 
 $("#frasesPortugues").on('wheel', function(event) {
-    $("#frasesIngles").scrollTop($("#frasesPortugues").scrollTop() + 100);
+    setTimeout(function(){$("#frasesIngles").scrollTop((parseInt($("#frasesPortugues").scrollTop())));},500);
 });

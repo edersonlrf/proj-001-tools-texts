@@ -7,7 +7,7 @@
     <td>Youtube: <input type="text" name="youtube" value="<?php echo $texto->getYoutube();?>" class="form-control" required="required"/></td>
 </tr>
 <tr>
-    <td>Inglês: <textarea name="ingles" class="form-control" rows="20"><?php echo $texto->getIngles();?></textarea></td>
+    <td>Inglês: <textarea name="ingles" class="form-control" rows="20" autofocus><?php echo $texto->getIngles();?></textarea></td>
     <td>Português: <textarea name="portugues" class="form-control" rows="20"><?php echo $texto->getPortugues();?></textarea></td>
 </tr>
 <tr>

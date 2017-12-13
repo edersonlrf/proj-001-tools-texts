@@ -56,8 +56,8 @@ class textoDAO
             '{$texto->getTitulo()}',
             '{$texto->getLink()}',
             '{$texto->getYoutube()}',
-            '{$texto->getIngles()}',
-            '{$texto->getPortugues()}',
+            '" . addslashes($texto->getIngles()) . "',
+            '" . addslashes($texto->getPortugues()) . "',
             '{$texto->getStatus()}'
         )";
 
@@ -77,8 +77,8 @@ class textoDAO
             titulo = '{$texto->getTitulo()}',
             link = '{$texto->getLink()}',
             youtube = '{$texto->getYoutube()}',
-            ingles = '{$texto->getIngles()}',
-            portugues = '{$texto->getPortugues()}',
+            ingles = '" . addslashes($texto->getIngles()) . "',
+            portugues = '" . addslashes($texto->getPortugues()) . "',
             status = '{$texto->getStatus()}'
             WHERE id = '{$texto->getId()}'
         ";

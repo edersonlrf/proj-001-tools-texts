@@ -1,3 +1,3 @@
 <?php
 
-$conexao = mysqli_connect("localhost", "root", "root", "proj-001-tools-texts");
+$conexao = mysqli_connect("localhost", "root", "", "proj-001-tools-texts");
