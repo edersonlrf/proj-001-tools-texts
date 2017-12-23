@@ -12,8 +12,6 @@ function prepararFrases() {
     var arrFrasesIngles = separaFrases(textoIngles);
     var arrFrasesPortugues = separaFrases(textoPortugues);
 
-
-
     var $frasesIngles = $("#frasesIngles");
     $frasesIngles.val("");
 
