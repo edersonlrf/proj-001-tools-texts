@@ -23,10 +23,8 @@ $textos = $textoDAO->listaTextos();
         </tr>
     </thead>
     <tbody>
-    <?php
-foreach ($textos as $texto):
-?>
-        <tr>
+    <?php foreach ($textos as $texto): ?>
+        <tr <?php echo ($texto->getStatus() == 'ok') ? 'style="background-color: lightgray;"' : ''; ?>>
             <td><?php echo $texto->getNumero(); ?></td>
             <td><?php echo $texto->getTitulo(); ?></td>
             <td><?php echo substr($texto->getIngles(), 0, 150) . '...'; ?></td>
