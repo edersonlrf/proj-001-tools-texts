@@ -24,7 +24,7 @@ class textoDAO
 
         $resultado = mysqli_query(
             $this->conexao,
-            "SELECT t.* FROM textos AS t"
+            "SELECT t.* FROM textos AS t ORDER BY t.status DESC, t.numero ASC"
         );
 
         while ($texto_array = mysqli_fetch_assoc($resultado)) {
@@ -50,14 +50,16 @@ class textoDAO
     {
         // Interpolar string e variavel usando o { }.
         $query = "
-        INSERT INTO textos (numero, titulo, link, youtube, ingles, portugues, status)
+        INSERT INTO textos (numero, titulo, link, youtube, ingles, portugues, anki_ingles, anki_portugues, status)
         VALUES (
             '{$texto->getNumero()}',
             '{$texto->getTitulo()}',
             '{$texto->getLink()}',
             '{$texto->getYoutube()}',
-            '" . addslashes($texto->getIngles()) . "',
-            '" . addslashes($texto->getPortugues()) . "',
+            '" . addslashes(trim($texto->getIngles())) . "',
+            '" . addslashes(trim($texto->getPortugues())) . "',
+            '" . addslashes(trim($texto->getAnkiIngles())) . "',
+            '" . addslashes(trim($texto->getAnkiPortugues())) . "',
             '{$texto->getStatus()}'
         )";
 
@@ -77,8 +79,10 @@ class textoDAO
             titulo = '{$texto->getTitulo()}',
             link = '{$texto->getLink()}',
             youtube = '{$texto->getYoutube()}',
-            ingles = '" . addslashes($texto->getIngles()) . "',
-            portugues = '" . addslashes($texto->getPortugues()) . "',
+            ingles = '" . addslashes(trim($texto->getIngles())) . "',
+            portugues = '" . addslashes(trim($texto->getPortugues())) . "',
+            anki_ingles = '" . addslashes(trim($texto->getAnkiIngles())) . "',
+            anki_portugues = '" . addslashes(trim($texto->getAnkiPortugues())) . "',
             status = '{$texto->getStatus()}'
             WHERE id = '{$texto->getId()}'
         ";

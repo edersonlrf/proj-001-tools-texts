@@ -33,10 +33,20 @@ $texto = $textoDAO->buscaTexto($id);
             </td>
         </tr>
         <tr>
-            <td width="50%">Inglês: <textarea id="campoIngles" name='ingles' class="form-control" rows="20"><?php echo $texto->getIngles();?></textarea></td>
-            <td width="50%">Português: <textarea id="campoPortugues" name='portugues' class="form-control" rows="20"><?php echo $texto->getPortugues();?></textarea></td>
+            <td width="50%">
+                Inglês:
+                <textarea id="campoIngles" name='ingles' class="form-control"
+                    rows="20"><?php echo trim($texto->getIngles()); ?></textarea>
+            </td>
+            <td width="50%">
+                Português:
+                <textarea id="campoPortugues" name='portugues' class="form-control"
+                    rows="20"><?php echo trim($texto->getPortugues()); ?></textarea>
+            </td>
         </tr>
     </table>
+    <input type="hidden" name="anki_ingles" value="<?php echo $texto->getAnkiIngles();?>" />
+    <input type="hidden" name="anki_portugues" value="<?php echo $texto->getAnkiPortugues();?>" />
 </form>
 
 <hr>
@@ -49,8 +59,16 @@ $texto = $textoDAO->buscaTexto($id);
     <input type="hidden" name="id" value="<?php echo $texto->getId();?>" />
     <table id="frasesPreparadas" class="table">
         <tr>
-            <td width="50%">Inglês: <textarea id="frasesIngles" name="frasesIngles" class="form-control" rows="20"></textarea></td>
-            <td width="50%">Português: <textarea id="frasesPortugues" name="frasesPortugues" class="form-control" rows="20"></textarea></td>
+            <td width="50%">
+                Inglês:
+                <textarea id="frasesIngles" name="frasesIngles" class="form-control"
+                    rows="20"><?php echo trim($texto->getAnkiIngles()); ?></textarea>
+            </td>
+            <td width="50%">
+                Português:
+                <textarea id="frasesPortugues" name="frasesPortugues" class="form-control"
+                    rows="20"><?php echo trim($texto->getAnkiPortugues()); ?></textarea>
+            </td>
         </tr>
     </table>
     <hr>

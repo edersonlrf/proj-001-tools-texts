@@ -24,7 +24,10 @@ if (usuarioEstaLogado()) {
     <table class="table">
         <tr>
             <td>Email</td>
-            <td><input class="form-control" type="email" name="email" required="required"></td>
+            <td>
+                <input type="email" name="email" class="sr-only" disabled>
+                <input class="form-control" type="email" name="email" required="required" autofocus>
+            </td>
         </tr>
         <tr>
             <td>Senha</td>

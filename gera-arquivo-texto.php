@@ -21,6 +21,11 @@ if (file_exists('docs/'.$nomeArquivo)) {
 $frasesIngles = $_POST['frasesIngles'];
 $frasesPortugues = $_POST['frasesPortugues'];
 
+$texto->setAnkiIngles(trim($frasesIngles));
+$texto->setAnkiPortugues(trim($frasesPortugues));
+
+$textoDAO->alteraTexto($texto);
+
 $arrFrasesIngles = explode("\n", $frasesIngles);
 $arrFrasesPortugues = explode("\n", $frasesPortugues);
 
