@@ -1,7 +1,3 @@
-var $prepararFrases = $("#prepararFrases");
-
-$prepararFrases.on("click", prepararFrases);
-
 function prepararFrases() {
     var $campoIngles = $("#campoIngles");
     var $campoPortugues = $("#campoPortugues");
@@ -9,15 +5,19 @@ function prepararFrases() {
     var textoIngles = $campoIngles.val();
     var textoPortugues = $campoPortugues.val();
 
-    var arrFrasesIngles = separaFrases(textoIngles);
-    var arrFrasesPortugues = separaFrases(textoPortugues);
+    var arrFrasesIngles = separarFrases(textoIngles);
+    var arrFrasesPortugues = separarFrases(textoPortugues);
 
     var $frasesIngles = $("#frasesIngles");
     $frasesIngles.val("");
 
     if (arrFrasesIngles.length > 0) {
         for (var i = 0; i < arrFrasesIngles.length; i++) {
-            $frasesIngles.val($frasesIngles.val() + arrFrasesIngles[i] + "\n\n");
+            $frasesIngles.val(
+                $frasesIngles.val()
+                + arrFrasesIngles[i]
+                + "\n\n"
+            );
         }
     }
 
@@ -26,21 +26,25 @@ function prepararFrases() {
 
     if (arrFrasesPortugues.length > 0) {
         for (var i = 0; i < arrFrasesPortugues.length; i++) {
-            $frasesPortugues.val($frasesPortugues.val() + arrFrasesPortugues[i] + "\n\n");
+            $frasesPortugues.val(
+                $frasesPortugues.val()
+                + arrFrasesPortugues[i]
+                + "\n\n"
+            );
         }
     }
 }
 
-function separaFrases(texto) {
+function separarFrases(texto) {
     var arrTexto = [];
 
-    var arrTextoSemQuebraLinha = separaFrasesPor("\n", texto);
+    var arrTextoSemQuebraLinha = separarFrasesPor("\n", texto);
 
     arrTextoSemQuebraLinha.forEach(function(textoSemQuebraLinha){
 
         textoSemQuebraLinha = textoSemQuebraLinha.replace('.', '[ponto].');
 
-        var arrTextoSemPonto = separaFrasesPor(".", textoSemQuebraLinha);
+        var arrTextoSemPonto = separarFrasesPor(".", textoSemQuebraLinha);
 
             arrTextoSemPonto.forEach(function(textoSemPonto, i){
                 arrTextoSemPonto[i] = textoSemPonto.replace('[ponto]', '.');
@@ -50,7 +54,7 @@ function separaFrases(texto) {
 
             textoSemPonto = textoSemPonto.replace(',', '[virgula],');
 
-            var arrTextoSemVirgula = separaFrasesPor(",", textoSemPonto);
+            var arrTextoSemVirgula = separarFrasesPor(",", textoSemPonto);
 
                 arrTextoSemVirgula.forEach(function(textoSemVirgula, i){
                     arrTextoSemVirgula[i] = textoSemVirgula.replace('[virgula]', ',');
@@ -60,7 +64,7 @@ function separaFrases(texto) {
 
                 textoSemVirgula = textoSemVirgula.replace(';', '[pontovirgula];');
 
-                var arrTextoSemPontoVirgula = separaFrasesPor(";", textoSemVirgula);
+                var arrTextoSemPontoVirgula = separarFrasesPor(";", textoSemVirgula);
 
                     arrTextoSemPontoVirgula.forEach(function(textoSemPontoVirgula, i){
                         arrTextoSemPontoVirgula[i] = textoSemPontoVirgula.replace('[pontovirgula]', ';');
@@ -70,7 +74,7 @@ function separaFrases(texto) {
 
                     textoSemPontoVirgula = textoSemPontoVirgula.replace('?', '[interrogacao]?');
 
-                    var arrTextoSemInterrogacao = separaFrasesPor("?", textoSemPontoVirgula);
+                    var arrTextoSemInterrogacao = separarFrasesPor("?", textoSemPontoVirgula);
 
                         arrTextoSemInterrogacao.forEach(function(textoSemInterrogacao, i){
                             arrTextoSemInterrogacao[i] = textoSemInterrogacao.replace('[interrogacao]', '?');
@@ -85,7 +89,7 @@ function separaFrases(texto) {
     return arrTexto;
 }
 
-function separaFrasesPor(split, texto) {
+function separarFrasesPor(split, texto) {
     var arrTexto = [];
     var spTexto = texto.split(split);
     for (var i = 0; i < spTexto.length; i++) {
@@ -95,6 +99,8 @@ function separaFrasesPor(split, texto) {
     }
     return arrTexto;
 }
+
+$("#prepararFrases").on('click', prepararFrases);
 
 $("#campoIngles").on('wheel', function(event) {
     setTimeout(function(){$("#campoPortugues").scrollTop((parseInt($("#campoIngles").scrollTop())));},500);

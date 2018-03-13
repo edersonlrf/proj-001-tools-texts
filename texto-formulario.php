@@ -8,7 +8,7 @@ require_once "class/Texto.php";
 
 verificaUsuario();
 
-$texto = new Texto("", "", "", "", "", "", "");
+$texto = new Texto("", "", "", "", "", "", "", "", "");
 
 ?>
 

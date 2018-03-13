@@ -33,6 +33,14 @@ class Texto
     /**
      * @var mixed
      */
+    private $anki_ingles;
+    /**
+     * @var mixed
+     */
+    private $anki_portugues;
+    /**
+     * @var mixed
+     */
     private $status;
 
     /**
@@ -42,17 +50,21 @@ class Texto
      * @param $youtube
      * @param $ingles
      * @param $portugues
+     * @param $anki_ingles
+     * @param $anki_portugues
      * @param $status
      */
-    public function __construct($numero, $titulo, $link, $youtube, $ingles, $portugues, $status)
+    public function __construct($numero, $titulo, $link, $youtube, $ingles, $portugues, $anki_ingles, $anki_portugues, $status)
     {
-        $this->numero    = $numero;
-        $this->titulo    = $titulo;
-        $this->link      = $link;
-        $this->youtube   = $youtube;
-        $this->ingles    = $ingles;
-        $this->portugues = $portugues;
-        $this->status    = $status;
+        $this->numero         = $numero;
+        $this->titulo         = $titulo;
+        $this->link           = $link;
+        $this->youtube        = $youtube;
+        $this->ingles         = $ingles;
+        $this->portugues      = $portugues;
+        $this->anki_ingles    = $anki_ingles;
+        $this->anki_portugues = $anki_portugues;
+        $this->status         = $status;
     }
 
     /**
@@ -142,6 +154,30 @@ class Texto
     // public function setPortugues($portugues) {
     //     $this->portugues = $portugues;
     // }
+
+    /**
+     * @return mixed
+     */
+    public function getAnkiIngles()
+    {
+        return $this->anki_ingles;
+    }
+
+    public function setAnkiIngles($anki_ingles) {
+        $this->anki_ingles = $anki_ingles;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnkiPortugues()
+    {
+        return $this->anki_portugues;
+    }
+
+    public function setAnkiPortugues($anki_portugues) {
+        $this->anki_portugues = $anki_portugues;
+    }
 
     /**
      * @return mixed
