@@ -1,7 +1,7 @@
 <tr>
     <td>
         Numero:
-        <input type="number" name="numero" value="<?php echo $texto->getNumero();?>" class="form-control" required="required"/>
+        <input type="number" name="numero" value="<?php echo $texto->getNumero();?>" class="form-control" required="required" autofocus/>
     </td>
     <td>
         Titulo:
@@ -41,6 +41,6 @@
 <tr>
     <td colspan="2">
         Status:
-        <input type="text" name="status" value="<?php echo $texto->getStatus();?>" class="form-control" autofocus>
+        <input type="text" name="status" value="<?php echo $texto->getStatus();?>" class="form-control">
     </td>
 </tr>

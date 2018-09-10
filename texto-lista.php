@@ -35,7 +35,8 @@ $textos = $textoDAO->listaTextos();
                 <a class="link" href="<?php echo ($texto->getYoutube()) ? $texto->getYoutube() : '#'; ?>" target="_blank">Youtube</a>
             </td>
             <td>
-                <a class="btn btn-warning" href="preparar-frases.php?id=<?php echo $texto->getId(); ?>">Anki</a>
+                <!-- <a class="btn btn-warning" href="preparar-frases.php?id=<?php echo $texto->getId(); ?>">Anki</a> -->
+                <a class="btn btn-warning" href="#" disabled>Anki</a>
                 <br><br>
                 <a class="btn btn-primary" href="texto-altera-formulario.php?id=<?php echo $texto->getId(); ?>">Alterar</a>
                 <br><br>
@@ -45,10 +46,12 @@ $textos = $textoDAO->listaTextos();
                 </form>
             </td>
             <td>
-                <a class="btn btn-success" href="texto-word-a.php?id=<?php echo $texto->getId(); ?>" target="_blank">A&nbsp;&nbsp;</a>
+                <!-- <a class="btn btn-success" href="texto-word-a.php?id=<?php echo $texto->getId(); ?>" target="_blank">A&nbsp;&nbsp;</a> -->
+                <a class="btn btn-success" href="#" disabled>A&nbsp;&nbsp;</a>
                 <a class="btn btn-success" href="texto-word-b1.php?id=<?php echo $texto->getId(); ?>" target="_blank">B1</a>
                 <a class="btn btn-success" href="texto-word-b2.php?id=<?php echo $texto->getId(); ?>" target="_blank">B2</a>
-                <a class="btn btn-success" href="texto-word-c1.php?id=<?php echo $texto->getId(); ?>" target="_blank">C1</a>
+                <!-- <a class="btn btn-success" href="texto-word-c1.php?id=<?php echo $texto->getId(); ?>" target="_blank">C1</a> -->
+                <a class="btn btn-success" href="#" disabled>C1</a>
                 <a class="btn btn-success" href="texto-word-c2.php?id=<?php echo $texto->getId(); ?>" target="_blank">C2</a>
             </td>
         </tr>
