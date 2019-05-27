@@ -93,7 +93,8 @@ function separarFrasesPor(split, texto) {
     var arrTexto = [];
     var spTexto = texto.split(split);
     for (var i = 0; i < spTexto.length; i++) {
-        spTexto[i] = spTexto[i].trim().toLowerCase();
+        // spTexto[i] = spTexto[i].trim().toLowerCase();
+        spTexto[i] = spTexto[i].trim();
         if (spTexto[i].length > 0)
             arrTexto.push(spTexto[i]);
     }
