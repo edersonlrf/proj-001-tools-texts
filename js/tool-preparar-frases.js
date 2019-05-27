@@ -42,43 +42,43 @@ function separarFrases(texto) {
 
     arrTextoSemQuebraLinha.forEach(function(textoSemQuebraLinha){
 
-        textoSemQuebraLinha = textoSemQuebraLinha.replace('.', '[ponto].');
+        textoSemQuebraLinha = textoSemQuebraLinha.replace('.', '.[ponto]');
 
-        var arrTextoSemPonto = separarFrasesPor(".", textoSemQuebraLinha);
+        var arrTextoSemPonto = separarFrasesPor('[ponto]', textoSemQuebraLinha);
 
-            arrTextoSemPonto.forEach(function(textoSemPonto, i){
+            /*arrTextoSemPonto.forEach(function(textoSemPonto, i){
                 arrTextoSemPonto[i] = textoSemPonto.replace('[ponto]', '.');
-            });
+            });*/
 
         arrTextoSemPonto.forEach(function(textoSemPonto){
 
-            textoSemPonto = textoSemPonto.replace(',', '[virgula],');
+            textoSemPonto = textoSemPonto.replace(',', ',[virgula]');
 
-            var arrTextoSemVirgula = separarFrasesPor(",", textoSemPonto);
+            var arrTextoSemVirgula = separarFrasesPor('[virgula]', textoSemPonto);
 
-                arrTextoSemVirgula.forEach(function(textoSemVirgula, i){
+                /*arrTextoSemVirgula.forEach(function(textoSemVirgula, i){
                     arrTextoSemVirgula[i] = textoSemVirgula.replace('[virgula]', ',');
-                });
+                });*/
 
             arrTextoSemVirgula.forEach(function(textoSemVirgula){
 
-                textoSemVirgula = textoSemVirgula.replace(';', '[pontovirgula];');
+                textoSemVirgula = textoSemVirgula.replace(';', ';[pontovirgula]');
 
-                var arrTextoSemPontoVirgula = separarFrasesPor(";", textoSemVirgula);
+                var arrTextoSemPontoVirgula = separarFrasesPor('[pontovirgula]', textoSemVirgula);
 
-                    arrTextoSemPontoVirgula.forEach(function(textoSemPontoVirgula, i){
+                    /*arrTextoSemPontoVirgula.forEach(function(textoSemPontoVirgula, i){
                         arrTextoSemPontoVirgula[i] = textoSemPontoVirgula.replace('[pontovirgula]', ';');
-                    });
+                    });*/
 
                 arrTextoSemPontoVirgula.forEach(function(textoSemPontoVirgula){
 
-                    textoSemPontoVirgula = textoSemPontoVirgula.replace('?', '[interrogacao]?');
+                    textoSemPontoVirgula = textoSemPontoVirgula.replace('?', '?[interrogacao]');
 
-                    var arrTextoSemInterrogacao = separarFrasesPor("?", textoSemPontoVirgula);
+                    var arrTextoSemInterrogacao = separarFrasesPor('[interrogacao]', textoSemPontoVirgula);
 
-                        arrTextoSemInterrogacao.forEach(function(textoSemInterrogacao, i){
+                        /*arrTextoSemInterrogacao.forEach(function(textoSemInterrogacao, i){
                             arrTextoSemInterrogacao[i] = textoSemInterrogacao.replace('[interrogacao]', '?');
-                        });
+                        });*/
 
                     arrTexto = arrTexto.concat(arrTextoSemInterrogacao);
                 });
