@@ -1,12 +1,10 @@
 {
-    "name": "edersonlrf/proj-001-tools-texts",
+    "name": "ederson.fernandes/proj-001-tools-texts",
     "authors": [
         {
-            "name": "edersonlrf",
+            "name": "Éderson Fernandes",
             "email": "edersonluis.rf@gmail.com"
         }
     ],
-    "require": {
-        "phpoffice/phpword": "v0.13.*"
-    }
+    "require": {}
 }

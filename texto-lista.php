@@ -35,8 +35,8 @@ $textos = $textoDAO->listaTextos();
                 <a class="link" href="<?php echo ($texto->getYoutube()) ? $texto->getYoutube() : '#'; ?>" target="_blank">Youtube</a>
             </td>
             <td>
-                <!-- <a class="btn btn-warning" href="preparar-frases.php?id=<?php echo $texto->getId(); ?>">Anki</a> -->
-                <a class="btn btn-warning" href="#" disabled>Anki</a>
+                <a class="btn btn-warning" href="preparar-frases.php?id=<?php echo $texto->getId(); ?>">Anki</a>
+                <!-- <a class="btn btn-warning" href="#" disabled>Anki</a> -->
                 <br><br>
                 <a class="btn btn-primary" href="texto-altera-formulario.php?id=<?php echo $texto->getId(); ?>">Alterar</a>
                 <br><br>
