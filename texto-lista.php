@@ -4,6 +4,8 @@ require_once "cabecalho.php";
 
 require_once "logica-usuario.php";
 
+verificaUsuario();
+
 $textoDAO = new TextoDAO($conexao);
 
 $textos = $textoDAO->listaTextos();

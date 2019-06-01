@@ -30,9 +30,11 @@ require_once "conecta.php";
                 <ul class="nav navbar-nav">
                     <li><a href="texto-lista.php">Lista Texto</a></li>
                     <li><a href="texto-formulario.php">Adiciona Texto</a></li>
-                    <li><a href="http://www.mairovergara.com/category/aprendendo-ingles-com-videos/" target="_blank">MairoVergara</a></li>
-                    <li><a href="http://www.clipconverter.cc/pt/" target="_blank">ClipConverter</a></li>
-                    <li><a href="https://y2mate.com/pt/" target="_blank">y2mate</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://www.mairovergara.com/category/aprendendo-ingles-com-videos/" target="_blank">www.mairovergara.com.br</a></li>
+                    <li><a href="https://ankiweb.net/about" target="_blank">www.ankiweb.net</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLYvATpO3He8NO2FZIvC6kHBYAjgC1jpgj" target="_blank">www.youtube.com/playlist</a></li>
                 </ul>
             </div>
         </div><!-- container acaba aqui -->
