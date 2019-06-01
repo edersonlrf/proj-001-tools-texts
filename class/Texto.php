@@ -91,10 +91,6 @@ class Texto
         return $this->numero;
     }
 
-    // public function setNumero($numero) {
-    //     $this->numero = $numero;
-    // }
-
     /**
      * @return mixed
      */
@@ -102,10 +98,6 @@ class Texto
     {
         return $this->titulo;
     }
-
-    // public function setTitulo($titulo) {
-    //     $this->titulo = $titulo;
-    // }
 
     /**
      * @return mixed
@@ -115,10 +107,6 @@ class Texto
         return $this->link;
     }
 
-    // public function setLink($link) {
-    //     $this->link = $link;
-    // }
-
     /**
      * @return mixed
      */
@@ -126,10 +114,6 @@ class Texto
     {
         return $this->youtube;
     }
-
-    // public function setYoutube($youtube) {
-    //     $this->youtube = $youtube;
-    // }
 
     /**
      * @return mixed
@@ -139,10 +123,6 @@ class Texto
         return $this->ingles;
     }
 
-    // public function setIngles($ingles) {
-    //     $this->ingles = $ingles;
-    // }
-
     /**
      * @return mixed
      */
@@ -150,10 +130,6 @@ class Texto
     {
         return $this->portugues;
     }
-
-    // public function setPortugues($portugues) {
-    //     $this->portugues = $portugues;
-    // }
 
     /**
      * @return mixed
@@ -186,10 +162,6 @@ class Texto
     {
         return $this->status;
     }
-
-    // public function setStatus($status) {
-    //     $this->status = $status;
-    // }
 
     /**
      * Todas as classe filhas precisam implementar este metodo.

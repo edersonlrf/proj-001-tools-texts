@@ -10,11 +10,19 @@ error_reporting(E_ALL ^ E_NOTICE);
 require_once "mostra-alerta.php";
 
 require_once "conecta.php";
+
+require_once "helpers.php";
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Tools Texts</title>
+
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
     <link href="css/style.css" rel="stylesheet">
@@ -22,7 +30,7 @@ require_once "conecta.php";
 
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container my-container">
             <div class="navbar-header">
                 <a href="index.php" class="navbar-brand">Tools Texts</a>
             </div>
@@ -37,12 +45,12 @@ require_once "conecta.php";
                     <li><a href="https://www.youtube.com/playlist?list=PLYvATpO3He8NO2FZIvC6kHBYAjgC1jpgj" target="_blank">www.youtube.com/playlist</a></li>
                 </ul>
             </div>
-        </div><!-- container acaba aqui -->
+        </div>
     </div>
 
-    <div class="container">
+    <div class="container my-container">
 
-        <div class="principal">
+        <div class="my-principal">
 
             <?php mostraAlerta("success");?>
             <?php mostraAlerta("danger");?>

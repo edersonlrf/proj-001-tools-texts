@@ -2,11 +2,15 @@ body {
     padding-top: 50px;
 }
 
-.principal {
+.my-principal {
     padding: 40px 15px;
     text-align: center;
 }
 
-.container {
+.my-container {
     width: 100% !important;
+}
+
+.my-btn-inline {
+    display: inline;
 }
