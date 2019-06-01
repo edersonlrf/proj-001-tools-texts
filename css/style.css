@@ -14,3 +14,7 @@ body {
 .my-btn-inline {
     display: inline;
 }
+
+textarea {
+    resize: none;
+}

@@ -20,7 +20,7 @@ $textos = $textoDAO->listaTextos();
             <th>Inglês</th>
             <th>Português</th>
             <th>Links</th>
-            <th width="250px">Ações</th>
+            <th width="200px" class="text-right">Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -35,13 +35,17 @@ $textos = $textoDAO->listaTextos();
                 <br><br>
                 <a class="link" href="<?php echo ($texto->getYoutube()) ? $texto->getYoutube() : '#'; ?>" target="_blank">Youtube</a>
             </td>
-            <td>
-                <a class="btn btn-warning" href="preparar-frases.php?id=<?php echo $texto->getId(); ?>">Anki</a>
-                <a class="btn btn-primary" href="texto-altera-formulario.php?id=<?php echo $texto->getId(); ?>">Alterar</a>
+            <td class="text-right">
+                <a class="btn btn-warning" href="texto-altera-formulario.php?id=<?php echo $texto->getId(); ?>">Alterar</a>
                 <form action="remove-texto.php" method="post" class="my-btn-inline">
                     <input type="hidden" name="id" value="<?php echo $texto->getId(); ?>" />
                     <button class="btn btn-danger">Remover</button>
                 </form>
+                <hr>
+                <a class="btn btn-primary" href="preparar-frases.php?id=<?php echo $texto->getId(); ?>">Anki</a>
+                <?php if (file_exists(h_text_file($texto->getNumero()))) : ?>
+                    <a class="btn btn-default" href="download-texto.php?texto=<?php echo h_text_number($texto->getNumero()); ?>">Download</a>
+                <?php endif; ?>
             </td>
         </tr>
     <?php

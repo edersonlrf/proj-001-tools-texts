@@ -51,7 +51,13 @@ $texto = $textoDAO->buscaTexto($id);
 
 <hr>
 
-<a class="btn btn-success" id="prepararFrases">Preparar Frases</a>
+<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Separadores</span>
+    <input type="text" class="form-control" value=". ? )" id="separadores">
+    <span class="input-group-btn">
+        <button class="btn btn-success" type="button" id="prepararFrases">Preparar Frases</button>
+    </span>
+</div>
 
 <hr>
 

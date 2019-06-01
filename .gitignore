@@ -1,3 +1,7 @@
+# Meus arquivos ignorados.
+/texts/*
+!/texts/index.html
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

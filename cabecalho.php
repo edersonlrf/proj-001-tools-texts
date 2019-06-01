@@ -13,7 +13,6 @@ require_once "conecta.php";
 
 require_once "helpers.php";
 ?>
-<!DOCTYPE html>
 <html lang="pt-br">
 <html>
 <head>
